@@ -4,9 +4,6 @@ import {Layout} from 'antd'
 const {Header, Content, Footer, Sider} = Layout
 import 'antd/dist/antd.css'
 import './main.scss'
-import logo from '../assets/HaoIO.png'
-import logo2x from '../assets/HaoIO@2x.png'
-import avatar from '../assets/avatar.png'
 
 class Main extends React.Component {
     render() {
@@ -38,8 +35,8 @@ class Main extends React.Component {
                                 <a className="logo" title="HaoIO"
                                    href="/" rel="home">
                                     <img
-                                        src={logo}
-                                        srcSet={`${logo} 1x, ${logo2x} 2x`}
+                                        src="/HaoIO.png"
+                                        srcSet={`/HaoIO.png 1x, /HaoIO@2x.png 2x`}
                                         className="site_logo"
                                         alt="HaoIO" />
                                 </a>
@@ -53,7 +50,7 @@ class Main extends React.Component {
                                 <h4>
                                     关于我
                                 </h4>
-                                <img src={avatar}/>
+                                <img src="/avatar.png"/>
                                 <p>
                                     嗨，你好。 欢迎你到我的小站。 我叫Senghoo，是一名码农，目前攻读博士学位。工作之余喜欢折腾各种新鲜玩意。 联系请发送邮件到me@senghoo.com
                                 </p>
