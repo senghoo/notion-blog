@@ -64,10 +64,12 @@ h1, h2, h3, h4, h5, h6 {
     .content-wrapper,.side{
       padding: 0 10px;
     }
+    .side:not(.ant-layout-sider-collapsed){
+      padding: 30px;
+      border-left: 1px solid #eee;
+    }
     .side{
       background-color: white;
-      border-left: 1px solid #eee;
-      padding: 30px;
       h4{
         margin-top: 10px;
         font-size: 15px;

@@ -14,7 +14,7 @@ class Main extends React.Component {
                     <div className="header">
                         <div className="main-nav">
                             <ul>
-                                <li className="active"><a>首页</a></li>
+                                <li className="active"><a href="/">首页</a></li>
                                 <li><a>Golang</a></li>
                                 <li><a>关于</a></li>
                             </ul>
@@ -45,7 +45,12 @@ class Main extends React.Component {
                                 {children}
                             </div>
                         </Content>
-                        <Sider className="side" width={340}>
+                        <Sider
+                            className="side"
+                            width={300}
+                            breakpoint="lg"
+                            collapsedWidth={0}
+                        >
                             <div className="about">
                                 <h4>
                                     关于我
