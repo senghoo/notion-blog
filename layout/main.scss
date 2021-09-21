@@ -54,6 +54,8 @@ h1, h2, h3, h4, h5, h6 {
     max-width: 1200px;
     background-color: white;
     padding: 0 42px;
+    display: flex;
+    flex-direction: row;
     .logo-wrapper{
       max-width: 1200px;
       padding: 42px 0;
