@@ -9,7 +9,8 @@ export async function getEdgeProps() {
     return {
         props: {
             articles
-        }
+        },
+        revalidate: 0
     }
 }
 

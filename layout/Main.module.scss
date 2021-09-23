@@ -1,11 +1,8 @@
 $main-color: #f47e00;
-h1, h2, h3, h4, h5, h6 {
-  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif!important;
-}
-.base-layout{
+.baseLayout{
   background-color: white;
 }
-.header-wrapper {
+.headerWrapper {
   position: fixed;
   width: 100%;
   top: 0;
@@ -46,7 +43,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-.main-wrapper {
+.mainWrapper {
   display: flex;
   justify-content: center;
   padding-top: 50px;
@@ -56,14 +53,14 @@ h1, h2, h3, h4, h5, h6 {
     padding: 0 42px;
     display: flex;
     flex-direction: row;
-    .logo-wrapper{
+    .logoWrapper{
       max-width: 1200px;
       padding: 42px 0;
       .logo{
         width: 136px;
       }
     }
-    .content-wrapper,.side{
+    .contentWrapper,.side{
       padding: 0 10px;
     }
     .side:not(.ant-layout-sider-collapsed){

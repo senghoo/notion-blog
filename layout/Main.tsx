@@ -1,38 +1,46 @@
 import * as React from 'react'
 import {Layout} from 'antd'
+import Head from 'flareact/head'
 
 const {Header, Content, Footer, Sider} = Layout
 import 'antd/dist/antd.css'
-import './main.scss'
+import mainStyle from './Main.module.scss'
 
 class Main extends React.Component {
     render() {
         const {children} = this.props
         return (
-            <Layout className="base-layout">
-                <div className="header-wrapper">
-                    <div className="header">
-                        <div className="main-nav">
+            <Layout className={mainStyle.baseLayout}>
+                <Head
+                    defer={false}
+                >
+                    <style type="text/css">
+                        {(mainStyle as any)._getCss && (mainStyle as any)._getCss()}
+                    </style>
+                </Head>
+                <div className={mainStyle.headerWrapper}>
+                    <div className={mainStyle.header}>
+                        <div>
                             <ul>
-                                <li className="active"><a href="/">首页</a></li>
+                                <li className={mainStyle.active}><a href="/">首页</a></li>
                                 <li><a>Golang</a></li>
                                 <li><a>关于</a></li>
                             </ul>
                         </div>
-                        <div className="header-icon">
+                        <div>
                             <ul>
-                                <li><a><i className="fab fa-twitter"></i></a></li>
-                                <li><a><i className="fab fa-github"></i></a></li>
-                                <li><a><i className="fa fa-rss"></i></a></li>
+                                <li><a><i className="fab fa-twitter" /></a></li>
+                                <li><a><i className="fab fa-github" /></a></li>
+                                <li><a><i className="fa fa-rss" /></a></li>
                             </ul>
                         </div>
                     </div>
                 </div>
-                <div className="main-wrapper">
-                    <Layout className="main">
-                        <Content className="content-wrapper">
-                            <div className="logo-wrapper">
-                                <a className="logo" title="HaoIO"
+                <div className={mainStyle.mainWrapper}>
+                    <Layout className={mainStyle.main}>
+                        <Content className={mainStyle.contentWrapper}>
+                            <div className={mainStyle.logoWrapper}>
+                                <a className={mainStyle.logo} title="HaoIO"
                                    href="/" rel="home">
                                     <img
                                         src="/HaoIO.png"
@@ -41,12 +49,12 @@ class Main extends React.Component {
                                         alt="HaoIO" />
                                 </a>
                             </div>
-                            <div className="content">
+                            <div>
                                 {children}
                             </div>
                         </Content>
                         <Sider
-                            className="side"
+                            className={mainStyle.side}
                             width={300}
                             breakpoint="lg"
                             collapsedWidth={0}
@@ -63,7 +71,7 @@ class Main extends React.Component {
                         </Sider>
                     </Layout>
                 </div>
-                <Footer className="footer">
+                <Footer className={mainStyle.footer}>
                     除非另有说明，本站文章采用<a
                     rel="&quot;license&quot;" href="&quot;http://creativecommons.org/licenses/by-sa/4.0/&quot;">知识共享署名-相同方式共享
                     4.0 国际许可协议</a>进行许可。

@@ -1,10 +1,12 @@
 import Head from 'flareact/head'
 import Main from '../../../layout/Main'
-import {fetchArticle} from '../../../api/article'
+import {fetchArticle, fetchPageContent, IArticleHead} from '../../../api/article'
 import ArticleHead from '../../../components/ArticleHead'
+import './article.scss'
+import css from './Article.module.css'
+import NotionRender from '../../../notion'
 
-export async function getEdgeProps({ params }) {
-    const {year, month, title} = params
+export async function articleID(year: string, month: string, title: string): Promise<IArticleHead | null> {
     const onOrAfter = `${year}-${month}-01`
     const onOrBefore = `${year}-${month}-${new Date(parseInt("2020"), parseInt("02"), 0).getDate()}`
     const titleDecoded = decodeURIComponent(title)
@@ -29,39 +31,51 @@ export async function getEdgeProps({ params }) {
     }
 
     const articles = await fetchArticle(query)
-    const article = articles.length > 0 ? articles[0] : null
+    return articles.length > 0 ? articles[0] : null
+}
+
+export async function getEdgeProps({params}) {
+    const {year, month, title} = params
+    const head = await articleID(year, month, title)
+    const article = head == null ? null : await fetchPageContent(head.ID)
     return {
         props: {
-            article,
-            query
+            head,
+            article
         },
-        notFound: articles.length <= 0,
+        notFound: head === null,
         revalidate: 0
     }
 }
-export default function title({article,query, notFound}) {
-    return(
+
+export default function title({head, article, notFound}) {
+    // @ts-ignore
+    return (
         <Main>
             <>
                 {
                     notFound === false &&
                     <div>
-                        <Head>
-                            <title>{article.Title} - HaoIO</title>
+                        <Head
+                            defer={false}
+                        >
+
+                            <title>{head.Title} - HaoIO</title>
+                            <style type="text/css">
+                                {(css as any)._getCss && (css as any)._getCss()}
+                            </style>
                         </Head>
-                        <ArticleHead head={article}/>
-                        <h1>
-                            hello paper
-                        </h1>
+                        <ArticleHead head={head!}/>
+                        <NotionRender blocks={article.children} />
+                        <pre className={css.code}>
+                            {JSON.stringify(article.children)}
+                        </pre>
                     </div>
                 }
                 {
-                    notFound===true &&
+                    notFound === true &&
                     <div>
                         文章不存在
-                        <pre>
-                            {JSON.stringify(query)}
-                        </pre>
                         <pre>
                             {JSON.stringify(article)}
                         </pre>
