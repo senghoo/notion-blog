@@ -67,9 +67,6 @@ export default function title({head, article, notFound}) {
                         </Head>
                         <ArticleHead head={head!}/>
                         <NotionRender blocks={article.children} />
-                        <pre className={css.code}>
-                            {JSON.stringify(article.children)}
-                        </pre>
                     </div>
                 }
                 {

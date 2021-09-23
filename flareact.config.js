@@ -58,6 +58,14 @@ module.exports = {
                 }
             ]
         })
+        config.module.rules.push({
+            test: /\.(ttf|eot|woff|woff2)$/i,
+            use: [
+                {
+                    loader: 'url-loader',
+                }
+            ]
+        })
         return config;
     },
 };
