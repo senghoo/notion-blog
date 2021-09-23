@@ -1,7 +1,8 @@
 $main-color: #f47e00;
-.baseLayout{
+.baseLayout {
   background-color: white;
 }
+
 .headerWrapper {
   position: fixed;
   width: 100%;
@@ -18,6 +19,7 @@ $main-color: #f47e00;
     display: flex;
     justify-content: space-between;
     padding: 0 42px;
+
     ul {
       list-style: none;
       box-sizing: border-box;
@@ -25,6 +27,7 @@ $main-color: #f47e00;
       padding-inline-start: 0;
       margin-block-end: 0;
       margin-block-start: 0;
+
       a {
         color: black;
         line-height: 20px;
@@ -34,11 +37,13 @@ $main-color: #f47e00;
         padding: 16px 10px 13px 10px;
         font-weight: 700;
       }
-      li.active{
-        a{
+
+      li.active {
+        a {
           color: $main-color;
         }
-      };
+      }
+    ;
     }
   }
 }
@@ -47,33 +52,41 @@ $main-color: #f47e00;
   display: flex;
   justify-content: center;
   padding-top: 50px;
+
   .main {
     max-width: 1200px;
     background-color: white;
     padding: 0 42px;
     display: flex;
     flex-direction: row;
-    .logoWrapper{
+
+    .logoWrapper {
       max-width: 1200px;
       padding: 42px 0;
-      .logo{
+
+      .logo {
         width: 136px;
       }
     }
-    .contentWrapper,.side{
+
+    .contentWrapper, .side {
       padding: 0 10px;
     }
-    .side:not(.ant-layout-sider-collapsed){
+
+    .side:not(.ant-layout-sider-collapsed) {
       padding: 30px;
       border-left: 1px solid #eee;
     }
-    .side{
+
+    .side {
       background-color: white;
-      h4{
+
+      h4 {
         margin-top: 10px;
         font-size: 15px;
       }
-      p{
+
+      p {
         margin-top: 14px;
         font-size: 14px;
         line-height: 23px;
@@ -81,13 +94,46 @@ $main-color: #f47e00;
       }
     }
   }
+
   border-bottom: 1px solid #eee;
 }
-.footer{
+
+.footerWrap {
   display: flex;
   justify-content: center;
-  a{
-    color: $main-color;
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    max-width: 1200px;
+    width: 100%;
+
+    .copyright {
+      a {
+        color: $main-color;
+      }
+    }
+
+    .marks {
+      display: flex;
+
+      span {
+        font-size: 20px;
+        border-bottom: 2px solid $main-color;
+        margin-bottom: 10px;
+        display: inline-block;
+      }
+
+      img {
+        height: 30px;
+        margin: 0 10px;
+      }
+
+      .fork, .poweredBy {
+        margin: 0 20px;
+        display: flex;
+        flex-direction: column;
+      }
+    }
   }
-  background-color: white;
 }

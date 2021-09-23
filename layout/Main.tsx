@@ -1,8 +1,9 @@
 import * as React from 'react'
-import {Layout} from 'antd'
 import Head from 'flareact/head'
 
-const {Header, Content, Footer, Sider} = Layout
+import {Layout} from 'antd'
+const {Header, Content, Sider} = Layout
+import Footer from './Footer'
 import 'antd/dist/antd.css'
 import mainStyle from './Main.module.scss'
 
@@ -71,11 +72,9 @@ class Main extends React.Component {
                         </Sider>
                     </Layout>
                 </div>
-                <Footer className={mainStyle.footer}>
-                    除非另有说明，本站文章采用<a
-                    rel="&quot;license&quot;" href="&quot;http://creativecommons.org/licenses/by-sa/4.0/&quot;">知识共享署名-相同方式共享
-                    4.0 国际许可协议</a>进行许可。
-                </Footer>
+                <div className={mainStyle.footerWrap}>
+                    <Footer/>
+                </div>
             </Layout>
     )
     }
