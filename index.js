@@ -11,6 +11,11 @@ const DEBUG = true;
 
 addEventListener("fetch", (event) => {
   try {
+    const url = new URL(event.request.url)
+    if (url.pathname !== '/' && url.pathname.endsWith('/')){
+      url.pathname = url.pathname.slice(0, url.pathname.length-1)
+      return event.respondWith(Response.redirect(url.toString(), 301))
+    }
     event.respondWith(
       handleEvent(event, require.context("./pages/", true, /\.(js|jsx|ts|tsx)$/), DEBUG)
     );
