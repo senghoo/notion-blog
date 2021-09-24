@@ -7,8 +7,11 @@ import css from './Article.module.css'
 import NotionRender from '../../../notion'
 
 export async function articleID(year: string, month: string, title: string): Promise<IArticleHead | null> {
+    if (year == null|| month == null || title == null){
+        return null
+    }
     const onOrAfter = `${year}-${month}-01`
-    const onOrBefore = `${year}-${month}-${new Date(parseInt("2020"), parseInt("02"), 0).getDate()}`
+    const onOrBefore = `${year}-${month}-${new Date(parseInt(year), parseInt(month), 0).getDate()}`
     const titleDecoded = decodeURIComponent(title)
     const query = {
         "filter": {

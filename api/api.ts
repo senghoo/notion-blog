@@ -9,6 +9,9 @@ export async function queryDatabase<T>(id:string, query:Object = {}):Promise<Pag
         body: JSON.stringify(query)
     })
     const res =  await data.json()
+    if(res.error){
+        return []
+    }
     return res
 }
 
