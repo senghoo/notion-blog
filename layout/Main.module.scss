@@ -69,18 +69,24 @@ $main-color: #f47e00;
       }
     }
 
-    .contentWrapper, .side {
+    .contentWrapper{
       padding: 0 10px;
     }
 
-    .side:not(.ant-layout-sider-collapsed) {
-      padding: 30px;
+    .side{
       border-left: 1px solid #eee;
+      .sideElem{
+        margin: 30px;
+      }
     }
 
     .side {
       background-color: white;
-
+      .about{
+        img{
+          width: 100%;
+        }
+      }
       h4 {
         margin-top: 10px;
         font-size: 15px;

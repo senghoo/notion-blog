@@ -60,12 +60,12 @@ class Main extends React.Component {
                             breakpoint="lg"
                             collapsedWidth={0}
                         >
-                            <div className="about">
-                                <h4>
+                            <div className={mainStyle.about}>
+                                <h4 className={mainStyle.sideElem}>
                                     关于我
                                 </h4>
-                                <img src="/avatar.png"/>
-                                <p>
+                                <img className={mainStyle.sideElem} src="/avatar.png"/>
+                                <p className={mainStyle.sideElem}>
                                     嗨，你好。 欢迎你到我的小站。 我叫Senghoo，是一名码农，目前攻读博士学位。工作之余喜欢折腾各种新鲜玩意。 联系请发送邮件到me@senghoo.com
                                 </p>
                             </div>

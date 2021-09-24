@@ -1,3 +1,4 @@
+$main-color: #f47e00;
 .block{
   font-size: 15px;
   line-height: 25.5px;
@@ -7,4 +8,23 @@
     border-bottom: 3px solid #f47e00;
     display: inline-block;
   }
+}
+
+.text{
+  pre{
+    display: inline;
+    margin: 0;
+    padding: 2px 4px;
+    font-size: 90%;
+    color: #c7254e;
+    background-color: #f9f2f4;
+    border-radius: 4px;
+  }
+
+}
+a.text{
+  color: $main-color;
+}
+a.text:hover{
+  color: black;
 }
