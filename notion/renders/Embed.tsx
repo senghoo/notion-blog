@@ -10,7 +10,7 @@ export default function paragraph({block}:{block: EmbedBlock}){
         const id = paths[paths.length-1]
 
         if (isWorker){
-            return null
+            return <script src ={`${url}.js`} > </script>
         }
         return <Gist id={id} />
     }
