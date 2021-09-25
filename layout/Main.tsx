@@ -57,7 +57,7 @@ class Main extends React.Component {
                         <Sider
                             className={mainStyle.side}
                             width={300}
-                            breakpoint="lg"
+                            breakpoint="xl"
                             collapsedWidth={0}
                         >
                             <div className={mainStyle.about}>

@@ -1,6 +1,8 @@
 import React, {RefObject} from "react"
 import Prism from "prismjs"
 // Prism.manual = true
+import 'prismjs/themes/prism-twilight.css'
+import 'prismjs/plugins/line-numbers/prism-line-numbers.css'
 
 type Props = {
     code: string
