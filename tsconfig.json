@@ -5,6 +5,8 @@
     "sourceMap": true,
     "jsx": "react-jsx",
     "plugins": [{ "name": "typescript-plugin-css-modules" }],
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": ".",
   },
   "exclude": [
     "node_modules"

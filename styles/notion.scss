@@ -1,0 +1,126 @@
+$main-color: #f47e00;
+[class*='notion-']{
+  margin-bottom: 3px;
+}
+.notion{
+  font-size: 15px;
+  line-height: 25.5px;
+  margin: 21px 0;
+  .notion-h{
+    .notion-h-title{
+      padding-bottom: 2px;
+      border-bottom: 3px solid #f47e00;
+      display: inline-block;
+    }
+  }
+  .notion-h1{
+    margin: 20px 0 10px;
+  }
+  .notion-h2{
+    margin: 10px 0 5px;
+  }
+  .notion-h3{
+    margin: 5px 0 3px;
+  }
+  .notion-link{
+    color: $main-color;
+  }
+  .notion-link:hover{
+    color: black;
+  }
+  .notion-inline-code{
+    display: inline;
+    margin: 0;
+    padding: 2px 4px;
+    font-size: 90%;
+    color: #c7254e;
+    background-color: #f9f2f4;
+    border-radius: 4px;
+  }
+  .notion-asset-wrapper-gist{
+    height: 150px;
+    div{
+      padding-bottom: 0 !important;
+    }
+  }
+  .notion-to-do{
+    .notion-property-checkbox{
+      display: inline-block;
+    }
+    .notion-to-do-body{
+      display: inline-block;
+      margin-left: 5px;
+    }
+  }
+  .notion-quote{
+    position: relative;
+    margin: 50px 0;
+    padding: 29px 65px;
+    text-align: left;
+    font-weight: bold;
+    border-top: 1px dashed #cacaca;
+    display: block;
+    border-bottom: 1px dashed #cacaca;
+    line-height: 1.6em;
+    font-size: 1.1em;
+    border-left: none;
+    border-right: none;
+  }
+  .notion-quote:before{
+    content: "\201C";
+    position: absolute;
+    left: 0;
+    top: 50px;
+    font-size: 100px;
+    color: #EDEDED;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-style: initial;
+  }
+  .notion-toggle>div{
+      margin-left: 20px;
+  }
+  .notion-table-of-contents:before{
+    content: "目录";
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    margin: 5px 0;
+  }
+  .notion-table-of-contents{
+    border: 1px solid #aaa;
+    padding: 10px;
+    margin-bottom: 1em;
+    width: auto;
+    display: table;
+    font-size: 95%;
+    background: #edf6ff;
+    .notion-table-of-contents-item{
+      display: block;
+      color: $main-color;
+    }
+    .notion-table-of-contents-item:hover{
+      color: black;
+    }
+  }
+
+  .notion-collection{
+    .notion-table{
+      border-collapse: collapse;
+      counter-increment: table;
+      margin: 1.667em 0 1em;
+      padding: 1em;
+      width: 100%;
+      border-top: 2px solid black ;
+      border-bottom: 2px solid black ;
+      th{
+        border-bottom: 1px solid black;
+      }
+      th,
+      td {
+        padding: 0.333em;
+        text-align: center;
+      }
+    }
+  }
+}
+

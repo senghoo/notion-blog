@@ -6,6 +6,9 @@ import {
     SelectOption, SelectPropertyValue,
     TitlePropertyValue
 } from '@notionhq/client/build/src/api-types'
+
+const articleDatabaseID = '596703f7de654fc79d819a830ecd6353'
+
 export interface IArticleHead{
     ID: string
     Title: string
@@ -14,7 +17,6 @@ export interface IArticleHead{
     PublishAt: string
 }
 
-const articleDatabaseID = '596703f7de654fc79d819a830ecd6353'
 export async function fetchArticle(query:Object = {}):Promise<Array<IArticleHead>>{
     const data = await queryDatabase(articleDatabaseID, query)
     return data.map(r=>{

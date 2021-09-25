@@ -16,13 +16,18 @@
     "antd": "^4.16.13",
     "flareact": "^1.2.1",
     "moment": "^2.29.1",
+    "notion-client": "^4.8.6",
+    "prismjs": "^1.25.0",
     "react": "^17.0.0",
     "react-dom": "^17.0.0",
     "react-gist": "^1.2.2",
-    "react-katex": "^2.0.2"
+    "react-katex": "^2.0.2",
+    "react-notion-x": "^4.9.0"
   },
   "devDependencies": {
     "@types/react": "^17.0.21",
+    "babel-loader": "^8.2.2",
+    "babel-plugin-prismjs": "^2.1.0",
     "css-loader": "4.2.1",
     "file-loader": "^6.2.0",
     "isomorphic-style-loader": "^5.3.2",
