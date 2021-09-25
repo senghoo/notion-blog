@@ -25,6 +25,7 @@ export class Code extends React.Component<Props> {
 
     componentDidMount() {
         Prism.plugins.autoloader.loadLanguages(this.props.language.toLowerCase())
+        debugger
         this.highlight()
     }
 
