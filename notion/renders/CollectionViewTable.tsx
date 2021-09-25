@@ -22,11 +22,11 @@ export function CollectionViewTable({collection, collectionView, collectionData}
             case 'select':
             case 'multi_select':
                 return (data as Array<Array<string>>)[0].map(val=>{
-                    return <span className='tag'>{val}</span>
+                    return <span key={val} className='tag'>{val}</span>
                 })
             default:
                 return (data as Array<Array<string>>)[0].map(val=>{
-                    return <span>{val}</span>
+                    return <span key={val}>{val}</span>
                 })
 
 
