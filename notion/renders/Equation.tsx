@@ -15,13 +15,9 @@ export const Equation: React.FC<{
     className?: string
 }> = ({ math, className, block }) => {
 
-    return (
-        <span
-            role='button'
-            tabIndex={0}
-            className={'notion-equation'}
-        >
-            {block ? <BlockMath math={math} /> : <InlineMath math={math}/>}
-    </span>
-    )
+    if (block){
+        return <BlockMath className={'notion-equation notion-equation-block'} math={math} />
+    }
+    return <InlineMath className={'notion-equation notion-equation-inline'} math={math}/>
+
 }
