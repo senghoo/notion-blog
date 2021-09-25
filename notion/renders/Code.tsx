@@ -7,6 +7,7 @@ import 'prismjs/themes/prism-twilight.css'
 import 'prismjs/plugins/autoloader/prism-autoloader'
 import 'prismjs/plugins/line-numbers/prism-line-numbers.css'
 import 'prismjs/plugins/line-numbers/prism-line-numbers'
+Prism.manual = false
 
 type Props = {
     code: string
@@ -52,13 +53,13 @@ export class Code extends React.Component<Props> {
         if (isWorker) {
             codeBlock = <code
                 ref={this.ref}
-                className={`language-${language}`}
+                className={`language-${language.toLowerCase()}`}
                 dangerouslySetInnerHTML={{__html: this.html()}}
             />
         } else{
             codeBlock = <code
                 ref={this.ref}
-                className={`language-${language}`}
+                className={`language-${language.toLowerCase()}`}
             >
                 {code}
             </code>
