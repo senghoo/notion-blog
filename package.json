@@ -15,6 +15,7 @@
     "@notionhq/client": "^0.3.2",
     "antd": "^4.16.13",
     "flareact": "^1.2.1",
+    "highlight.js": "^11.2.0",
     "moment": "^2.29.1",
     "notion-client": "^4.8.6",
     "prismjs": "^1.25.0",

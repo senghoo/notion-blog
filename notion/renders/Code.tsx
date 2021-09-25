@@ -1,13 +1,8 @@
 import React, {RefObject} from "react"
-import Prism from "prismjs"
-import 'prismjs/components/prism-go'
-import 'prismjs/components/prism-typescript'
-import 'prismjs/prism'
-import 'prismjs/themes/prism-twilight.css'
-import 'prismjs/plugins/autoloader/prism-autoloader'
-import 'prismjs/plugins/line-numbers/prism-line-numbers.css'
-import 'prismjs/plugins/line-numbers/prism-line-numbers'
-Prism.manual = false
+import hljs from 'highlight.js'
+import 'highlight.js/styles/tomorrow-night-bright.css'
+
+const BREAK_LINE_REGEXP = /\r\n|\r|\n/g
 
 type Props = {
     code: string
@@ -19,55 +14,43 @@ export class Code extends React.Component<Props> {
 
     constructor(props) {
         super(props)
-        this.ref = React.createRef()
-        this.highlight()
     }
 
     componentDidMount() {
-        Prism.plugins.autoloader.loadLanguages(this.props.language.toLowerCase())
-        this.highlight()
     }
 
     componentDidUpdate() {
-        this.highlight()
-    }
-
-    highlight = () => {
-        if (this.ref && this.ref.current) {
-            Prism.highlightElement(this.ref.current)
-        }
     }
 
     html() {
         const {code, language} = this.props
-        const languageL = language.toLowerCase()
-        const prismLanguage = Prism.languages[languageL] || Prism.languages.javascript
-        return Prism.highlight(code, prismLanguage, language)
+        const hl = hljs.highlight(code, {language: language.toLowerCase()})
+        const lines = this.getLines(hl.value)
+
+        return lines.map((line, idx) => {
+            return <span
+                className="line"
+                dangerouslySetInnerHTML={{__html: line + "\n"}}
+                key={idx}
+            />
+        })
+
+    }
+
+    getLines(text) {
+        if (text.length === 0) return []
+        return text.split(BREAK_LINE_REGEXP)
     }
 
     render() {
         const {code, language} = this.props
-        const plugins = ['line-numbers']
-        let codeBlock = null
         const isWorker = (typeof document) === 'undefined'
-        if (isWorker) {
-            codeBlock = <code
-                ref={this.ref}
-                className={`language-${language.toLowerCase()}`}
-                dangerouslySetInnerHTML={{__html: this.html()}}
-            />
-        } else{
-            codeBlock = <code
-                ref={this.ref}
-                className={`language-${language.toLowerCase()}`}
-            >
-                {code}
-            </code>
-        }
 
         return (
-            <pre className={`notion-code ${plugins.join(" ")}`}>
-                {codeBlock}
+            <pre className={`notion-code`}>
+                <code
+                    ref={this.ref}
+                >{this.html()}</code>
       </pre>
         )
     }
