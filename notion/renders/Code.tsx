@@ -7,8 +7,6 @@ import 'prismjs/themes/prism-twilight.css'
 import 'prismjs/plugins/autoloader/prism-autoloader'
 import 'prismjs/plugins/line-numbers/prism-line-numbers.css'
 import 'prismjs/plugins/line-numbers/prism-line-numbers'
-// Prism.manual = true
-Prism.languages
 
 type Props = {
     code: string
@@ -21,11 +19,11 @@ export class Code extends React.Component<Props> {
     constructor(props) {
         super(props)
         this.ref = React.createRef()
+        this.highlight()
     }
 
     componentDidMount() {
         Prism.plugins.autoloader.loadLanguages(this.props.language.toLowerCase())
-        debugger
         this.highlight()
     }
 
@@ -35,11 +33,11 @@ export class Code extends React.Component<Props> {
 
     highlight = () => {
         if (this.ref && this.ref.current) {
-            alert('abc')
             Prism.highlightElement(this.ref.current)
         }
     }
-    html(){
+
+    html() {
         const {code, language} = this.props
         const languageL = language.toLowerCase()
         const prismLanguage = Prism.languages[languageL] || Prism.languages.javascript
@@ -47,16 +45,28 @@ export class Code extends React.Component<Props> {
     }
 
     render() {
-        const {code,language} = this.props
+        const {code, language} = this.props
         const plugins = ['line-numbers']
+        let codeBlock = null
+        const isWorker = (typeof document) === 'undefined'
+        if (isWorker) {
+            codeBlock = <code
+                ref={this.ref}
+                className={`language-${language}`}
+                dangerouslySetInnerHTML={{__html: this.html()}}
+            />
+        } else{
+            codeBlock = <code
+                ref={this.ref}
+                className={`language-${language}`}
+            >
+                {code}
+            </code>
+        }
+
         return (
             <pre className={`notion-code ${plugins.join(" ")}`}>
-        <code
-            ref={this.ref}
-            className={`language-${language}`}
-        >
-            {code}
-        </code>
+                {codeBlock}
       </pre>
         )
     }
