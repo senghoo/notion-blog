@@ -4,8 +4,8 @@ import 'katex/dist/katex.min.css'
 import {InlineMath, BlockMath} from 'react-katex'
 
 const katexSettings = {
-    throwOnError: false,
-    strict: false
+    // throwOnError: false,
+    strict: true
 }
 
 export const Equation: React.FC<{
