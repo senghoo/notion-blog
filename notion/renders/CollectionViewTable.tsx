@@ -1,7 +1,8 @@
 import {CollectionViewProps, useNotionContext} from 'react-notion-x'
 import {CollectionPropertySchema} from 'notion-types'
-export function CollectionViewTable({collection, collectionView, collectionData}:CollectionViewProps){
-    const { recordMap } = useNotionContext()
+
+export function CollectionViewTable({collection, collectionView, collectionData}: CollectionViewProps) {
+    const {recordMap} = useNotionContext()
 
     let properties = []
 
@@ -10,22 +11,22 @@ export function CollectionViewTable({collection, collectionView, collectionData}
             (p) => p.visible && collection.schema[p.property]
         )
     } else {
-        properties = [{ property: 'title' }].concat(
+        properties = [{property: 'title'}].concat(
             Object.keys(collection.schema)
                 .filter((p) => p !== 'title')
-                .map((property) => ({ property }))
+                .map((property) => ({property}))
         )
     }
-    const renderData = (schema:CollectionPropertySchema, data: any)=>{
-        if(!data) return null
+    const renderData = (schema: CollectionPropertySchema, data: any) => {
+        if (!data) return null
         switch (schema.type) {
             case 'select':
             case 'multi_select':
-                return (data as Array<Array<string>>)[0].map(val=>{
-                    return <span key={val} className='tag'>{val}</span>
+                return (data as Array<Array<string>>)[0].map(val => {
+                    return <span key={val} className="tag">{val}</span>
                 })
             default:
-                return (data as Array<Array<string>>)[0].map(val=>{
+                return (data as Array<Array<string>>)[0].map(val => {
                     return <span key={val}>{val}</span>
                 })
 
@@ -33,28 +34,32 @@ export function CollectionViewTable({collection, collectionView, collectionData}
         }
         return null
     }
-    return <table className='notion-table'>
+    return <table className="notion-table">
+        <thead>
         <tr>
             {
-                properties.map(p=>{
+                properties.map(p => {
                     const schema = collection.schema?.[p.property]
                     return <th key={p.property}>{schema.name}</th>
                 })
             }
         </tr>
-        {collectionData.blockIds.map(blockId=>{
+        </thead>
+        <tbody>
+        {collectionData.blockIds.map(blockId => {
             return <tr key={blockId}>
                 {
-                    properties.map(p=>{
+                    properties.map(p => {
                         const schema = collection.schema?.[p.property]
                         const block = recordMap.block[blockId]?.value
                         const data = block?.properties?.[p.property]
-                        return <td>
+                        return <td key={p.property}>
                             {renderData(schema, data)}
                         </td>
                     })
                 }
             </tr>
         })}
+        </tbody>
     </table>
 }

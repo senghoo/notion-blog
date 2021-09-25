@@ -4,6 +4,7 @@ import {Code} from '../notion/renders/Code'
 import {Checkbox} from '../notion/renders/Checkbox'
 import {Collection} from '../notion/renders/Collection'
 import {Equation} from '../notion/renders/Equation'
+import * as types from 'notion-types'
 
 
 export default function ArticleHead(props: {recordMap:ExtendedRecordMap}) {

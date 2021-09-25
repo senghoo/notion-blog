@@ -15,3 +15,5 @@ declare module '*.css' {
 }
 
 declare const DEV: boolean | undefined;
+
+declare const NAMESPACE: any
