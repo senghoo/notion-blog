@@ -24,13 +24,11 @@ export class Code extends React.Component<Props> {
     }
 
     componentDidMount() {
-        debugger
         Prism.plugins.autoloader.loadLanguages(this.props.language.toLowerCase())
         this.highlight()
     }
 
     componentDidUpdate() {
-        debugger
         this.highlight()
     }
 
