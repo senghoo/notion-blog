@@ -7,7 +7,7 @@ import 'prismjs/themes/prism-twilight.css'
 import 'prismjs/plugins/autoloader/prism-autoloader'
 import 'prismjs/plugins/line-numbers/prism-line-numbers.css'
 import 'prismjs/plugins/line-numbers/prism-line-numbers'
-Prism.manual = true
+// Prism.manual = true
 Prism.languages
 
 type Props = {
@@ -35,6 +35,7 @@ export class Code extends React.Component<Props> {
 
     highlight = () => {
         if (this.ref && this.ref.current) {
+            alert('abc')
             Prism.highlightElement(this.ref.current)
         }
     }
