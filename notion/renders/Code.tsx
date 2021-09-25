@@ -1,10 +1,14 @@
 import React, {RefObject} from "react"
 import Prism from "prismjs"
+import 'prismjs/components/prism-go'
+import 'prismjs/components/prism-typescript'
 import 'prismjs/prism'
 import 'prismjs/themes/prism-twilight.css'
+import 'prismjs/plugins/autoloader/prism-autoloader'
 import 'prismjs/plugins/line-numbers/prism-line-numbers.css'
-import 'prismjs/plugins/line-numbers/prism-line-numbers.min'
+import 'prismjs/plugins/line-numbers/prism-line-numbers'
 Prism.manual = true
+Prism.languages
 
 type Props = {
     code: string
@@ -20,10 +24,13 @@ export class Code extends React.Component<Props> {
     }
 
     componentDidMount() {
+        debugger
+        Prism.plugins.autoloader.loadLanguages(this.props.language.toLowerCase())
         this.highlight()
     }
 
     componentDidUpdate() {
+        debugger
         this.highlight()
     }
 
