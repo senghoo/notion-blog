@@ -43,6 +43,11 @@ $main-color: #f47e00;
       padding-bottom: 0 !important;
     }
   }
+  .notion-asset-wrapper-image{
+    img{
+      width: 100%;
+    }
+  }
   .notion-to-do{
     .notion-property-checkbox{
       display: inline-block;
