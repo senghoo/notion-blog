@@ -24,7 +24,10 @@ export class Code extends React.Component<Props> {
 
     html() {
         const {code, language} = this.props
-        const hl = hljs.highlight(code, {language: language.toLowerCase()})
+        const hl = hljs.highlight(code, {
+            language: language === 'plain text' ? '': language.toLowerCase(),
+            ignoreIllegals: true,
+        })
         const lines = this.getLines(hl.value)
 
         return lines.map((line, idx) => {
