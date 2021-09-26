@@ -14,7 +14,7 @@ export default function ArticleHead(props: props) {
             <h1><a href={`/${publishAt.format('YYYY')}/${publishAt.format('MM')}/${title}`}>{title}</a></h1>
             <div className="meta">
                 <span>In: <a>{props.head.Category}</a></span>
-                <span>Tags: {props.head.Tags.map(e=><a key={e}>e</a>)}</span>
+                <span>Tags: {props.head.Tags.map(e=><a className='tag' key={e}>{e}</a>)}</span>
                 <span>Published: <a>{publishAt.format('L')}</a></span>
             </div>
         </div>
