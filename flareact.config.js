@@ -49,7 +49,7 @@ module.exports = {
             const test = "test.module.scss"
             const rule = config.module.rules.filter(r => r.test.test(test))[0]
             // console.log("client", config.module.rules.filter(r => r.test.test(test))[0])
-            config.optimization = {}
+            config.optimization.minimizer = []
         }
         config.module.rules.push({
             test: /\.(png|jpe?g|gif)$/i,
