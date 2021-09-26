@@ -1,0 +1,39 @@
+import Document, {Html, Head, Main, FlareactScript} from "flareact/document"
+import mainStyle from '../layout/Main.module.scss'
+import {ComponentProps} from 'react'
+
+interface IDocumentProp{
+    helmet: any
+    buildManifest : any
+}
+
+class MyDocument extends Document<IDocumentProp> {
+    static async getEdgeProps(ctx) {
+        const props = await Document.getEdgeProps(ctx)
+        return {...props}
+    }
+
+    render() {
+        const props = (this as any).props as IDocumentProp
+        return (
+            <Html>
+                <Head />
+                <body>
+                <pre>
+                    {JSON.stringify(props.helmet)}
+                </pre>
+                <pre>
+                    {JSON.stringify(props.buildManifest.pages["/_document"])}
+                </pre>
+                <style type="text/css">
+                    {(mainStyle as any)._getCss && (mainStyle as any)._getCss()}
+                </style>
+                <Main/>
+                <FlareactScript/>
+                </body>
+            </Html>
+        )
+    }
+}
+
+export default MyDocument
