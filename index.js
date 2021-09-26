@@ -11,6 +11,7 @@ const DEBUG = true;
 
 addEventListener("fetch", (event) => {
   try {
+    DEBUG && console.log('running')
     const url = new URL(event.request.url)
     if (url.pathname !== '/' && url.pathname.endsWith('/')){
       url.pathname = url.pathname.slice(0, url.pathname.length-1)
@@ -20,9 +21,9 @@ addEventListener("fetch", (event) => {
       handleEvent(event, require.context("./pages/", true, /\.(js|jsx|ts|tsx)$/), DEBUG)
     );
   } catch (e) {
-    console.log('exception')
-    console.log(DEBUG)
-    console.log(e.message)
+    DEBUG && (console.log('exception'),
+    console.log(DEBUG),
+    console.log(e.message))
     if (DEBUG) {
       return event.respondWith(
         new Response(e.message || e.toString(), {

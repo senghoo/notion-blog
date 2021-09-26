@@ -44,6 +44,7 @@ module.exports = {
                 sassLoader
             ]
 
+            config.optimization.minimizer = []
             // console.log("server", config.module.rules.filter(r => r.test.test(test))[0])
         } else {
             const test = "test.module.scss"
