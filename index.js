@@ -20,6 +20,9 @@ addEventListener("fetch", (event) => {
       handleEvent(event, require.context("./pages/", true, /\.(js|jsx|ts|tsx)$/), DEBUG)
     );
   } catch (e) {
+    console.log('exception')
+    console.log(DEBUG)
+    console.log(e.message)
     if (DEBUG) {
       return event.respondWith(
         new Response(e.message || e.toString(), {
