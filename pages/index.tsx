@@ -5,7 +5,6 @@ import '../styles/index.scss'
 import ArticleHead from '../components/ArticleHead'
 import indexStyle from './index.module.scss'
 import mainStyle from '../layout/Main.module.scss'
-import * as React from 'react'
 
 export async function getEdgeProps() {
 
