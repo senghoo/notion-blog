@@ -1,5 +1,5 @@
 import React, {RefObject} from "react"
-import hljs from 'highlight.js'
+import hljs, {HighlightResult} from 'highlight.js'
 import 'highlight.js/styles/tomorrow-night-bright.css'
 
 const BREAK_LINE_REGEXP = /\r\n|\r|\n/g
@@ -24,10 +24,15 @@ export class Code extends React.Component<Props> {
 
     html() {
         const {code, language} = this.props
-        const hl = hljs.highlight(code, {
-            language: language === 'plain text' ? '': language.toLowerCase(),
-            ignoreIllegals: true,
-        })
+        let hl:HighlightResult
+        try{
+            hl = hljs.highlight(code, {
+                language: language === 'plain text' ? '': language.toLowerCase(),
+                ignoreIllegals: true,
+            })
+        }catch (e) {
+            hl = hljs.highlightAuto(code)
+        }
         const lines = this.getLines(hl.value)
 
         return lines.map((line, idx) => {
