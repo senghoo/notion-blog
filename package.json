@@ -11,6 +11,7 @@
     "deploy": "flareact publish"
   },
   "dependencies": {
+    "@babel/core": "^7.15.5",
     "@fortawesome/fontawesome-free": "^5.15.4",
     "@notionhq/client": "^0.3.2",
     "antd": "^4.16.13",
@@ -19,13 +20,15 @@
     "moment": "^2.29.1",
     "notion-client": "^4.8.6",
     "prismjs": "^1.25.0",
-    "react": "^17.0.0",
-    "react-dom": "^17.0.0",
+    "prop-types": "^15.5.10",
+    "react": "^16.3.0",
+    "react-dom": "^16.3.0",
     "react-gist": "^1.2.2",
     "react-katex": "^2.0.2",
     "react-notion-x": "^4.9.0"
   },
   "devDependencies": {
+    "@babel/runtime": "^7.15.4",
     "@types/react": "^17.0.21",
     "babel-loader": "^8.2.2",
     "babel-plugin-prismjs": "^2.1.0",
