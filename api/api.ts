@@ -1,10 +1,11 @@
 import * as path from 'path'
 
-const endpoint = "https://notion-api.hao.io"
+const endpoint = "https://notion-api.haoio.workers.dev"
 import {BlockBase,Block, Page, PaginatedList} from '@notionhq/client/build/src/api-types'
 
 export async function queryDatabase<T>(id:string, query:Object = {}):Promise<Page[]>{
-    const data = await fetch(`${endpoint}/query/${id}`,{
+    const url = `${endpoint}/query/${id}`
+    const data = await fetch(url,{
         method: 'post',
         body: JSON.stringify(query)
     })
