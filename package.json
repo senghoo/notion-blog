@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@babel/core": "^7.15.5",
+    "@babel/runtime": "^7.15.4",
     "@fortawesome/fontawesome-free": "^5.15.4",
     "@notionhq/client": "^0.3.2",
     "antd": "^4.16.13",
@@ -25,10 +26,13 @@
     "react-dom": "^16.3.0",
     "react-gist": "^1.2.2",
     "react-katex": "^2.0.2",
-    "react-notion-x": "^4.9.0",
-    "@babel/runtime": "^7.15.4"
+    "react-notion-x": "^4.9.0"
   },
   "devDependencies": {
+    "@babel/plugin-transform-runtime": "^7.15.0",
+    "@babel/preset-env": "^7.15.6",
+    "@babel/preset-react": "^7.14.5",
+    "@babel/preset-typescript": "^7.15.0",
     "@types/react": "^17.0.21",
     "babel-loader": "^8.2.2",
     "babel-plugin-prismjs": "^2.1.0",
@@ -40,6 +44,7 @@
     "postcss": "^8.3.6",
     "postcss-loader": "4.3.0",
     "postcss-modules": "^4.2.2",
+    "react-refresh": "^0.10.0",
     "react-svg-loader": "^3.0.3",
     "sass-loader": "10.2.0",
     "scss-loader": "^0.0.1",
