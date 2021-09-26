@@ -10,7 +10,6 @@ type Props = {
 }
 
 export class Code extends React.Component<Props> {
-    ref: RefObject<HTMLElement>
 
     constructor(props) {
         super(props)
@@ -38,9 +37,13 @@ export class Code extends React.Component<Props> {
         return lines.map((line, idx) => {
             return <span
                 className="line"
-                dangerouslySetInnerHTML={{__html: line + "\n"}}
                 key={idx}
-            />
+            >
+                <span
+                className="code"
+                dangerouslySetInnerHTML={{__html: line + "\n"}}
+                />
+            </span>
         })
 
     }
@@ -56,9 +59,7 @@ export class Code extends React.Component<Props> {
 
         return (
             <pre className={`notion-code`}>
-                <code
-                    ref={this.ref}
-                >{this.html()}</code>
+                <code>{this.html()}</code>
       </pre>
         )
     }

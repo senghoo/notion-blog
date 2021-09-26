@@ -1,6 +1,6 @@
 $main-color: #f47e00;
 [class*='notion-']{
-  margin-bottom: 3px;
+  margin: 1em 0;
 }
 .notion{
   font-size: 15px;
@@ -138,15 +138,19 @@ $main-color: #f47e00;
       content: counter(line);
       border-right: 1px solid #ddd;
       padding: 0 5px;
-      width: 35px;
+      min-width: 35px;
       display: inline-block;
       text-align: right;
       margin-right: 10px;
     }
     .line{
+      display: flex;
       text-shadow: 0 -0.1em 0.2em #444;
       padding-left: 5px;
     }
+  }
+  .notion-list{
+    margin: 0;
   }
 }
 
