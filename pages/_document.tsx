@@ -1,6 +1,5 @@
 import Document, {Html, Head, Main, FlareactScript} from "flareact/document"
 import mainStyle from '../layout/Main.module.scss'
-import * as React from 'react'
 
 class MyDocument extends Document {
     static async getEdgeProps(ctx) {

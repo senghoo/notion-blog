@@ -69,9 +69,6 @@ export default function title({head, article, recordMap, notFound}) {
                         >
 
                             <title>{head.Title} - HaoIO</title>
-                            <style type="text/css">
-                                {(css as any)._getCss && (css as any)._getCss()}
-                            </style>
                         </Head>
                         <ArticleHead head={head!}/>
                         {/*<NotionRender blocks={article.children} />*/}
