@@ -25,10 +25,10 @@
     "react-dom": "^16.3.0",
     "react-gist": "^1.2.2",
     "react-katex": "^2.0.2",
-    "react-notion-x": "^4.9.0"
+    "react-notion-x": "^4.9.0",
+    "@babel/runtime": "^7.15.4"
   },
   "devDependencies": {
-    "@babel/runtime": "^7.15.4",
     "@types/react": "^17.0.21",
     "babel-loader": "^8.2.2",
     "babel-plugin-prismjs": "^2.1.0",
