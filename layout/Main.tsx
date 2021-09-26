@@ -8,9 +8,7 @@ import Footer from './Footer'
 import 'antd/dist/antd.css'
 import mainStyle from './Main.module.scss'
 
-class Main extends React.Component {
-    render() {
-        const {children} = this.props
+export default function Main({children}:{children: React.FC }) {
         return (
             <Layout className={mainStyle.baseLayout}>
                 <div className={mainStyle.headerWrapper}>
@@ -72,6 +70,3 @@ class Main extends React.Component {
             </Layout>
         )
     }
-}
-
-export default Main
