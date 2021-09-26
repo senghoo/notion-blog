@@ -14,7 +14,13 @@ export async function getEdgeProps() {
             "date": {
                 is_not_empty:true
             }
-        }
+        },
+        "sorts": [
+            {
+                "property": "PublishAt",
+                "direction": "descending"
+            }
+        ]
     }
     const articles = await fetchArticle(query)
     return {
