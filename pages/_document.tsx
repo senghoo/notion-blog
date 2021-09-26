@@ -10,7 +10,7 @@ class MyDocument extends Document {
     render() {
         return (
             <Html>
-                <Head/>
+                <Head />
                 <body>
                 <style type="text/css">
                     {(mainStyle as any)._getCss && (mainStyle as any)._getCss()}

@@ -2,6 +2,7 @@ import * as React from 'react'
 import Head from 'flareact/head'
 
 import {Layout} from 'antd'
+
 const {Header, Content, Sider} = Layout
 import Footer from './Footer'
 import 'antd/dist/antd.css'
@@ -12,13 +13,6 @@ class Main extends React.Component {
         const {children} = this.props
         return (
             <Layout className={mainStyle.baseLayout}>
-                <Head
-                    defer={false}
-                >
-                    <style type="text/css">
-                        {(mainStyle as any)._getCss && (mainStyle as any)._getCss()}
-                    </style>
-                </Head>
                 <div className={mainStyle.headerWrapper}>
                     <div className={mainStyle.header}>
                         <div>
@@ -30,9 +24,9 @@ class Main extends React.Component {
                         </div>
                         <div>
                             <ul>
-                                <li><a><i className="fab fa-twitter" /></a></li>
-                                <li><a><i className="fab fa-github" /></a></li>
-                                <li><a><i className="fa fa-rss" /></a></li>
+                                <li><a><i className="fab fa-twitter"/></a></li>
+                                <li><a><i className="fab fa-github"/></a></li>
+                                <li><a><i className="fa fa-rss"/></a></li>
                             </ul>
                         </div>
                     </div>
@@ -47,7 +41,7 @@ class Main extends React.Component {
                                         src="/HaoIO.png"
                                         srcSet={`/HaoIO.png 1x, /HaoIO@2x.png 2x`}
                                         className="site_logo"
-                                        alt="HaoIO" />
+                                        alt="HaoIO"/>
                                 </a>
                             </div>
                             <div>
@@ -76,8 +70,8 @@ class Main extends React.Component {
                     <Footer/>
                 </div>
             </Layout>
-    )
+        )
     }
-    }
+}
 
-    export default Main
+export default Main
